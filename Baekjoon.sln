@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37012.4
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Baekjoon", "Baekjoon\Baekjoon.csproj", "{9C55AB01-8C7D-4B05-B773-50185A775B06}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solved_READONLY", "Solved_READONLY", "{2A3A057F-5D22-31FD-628C-DF5EF75AEF1E}"
+	ProjectSection(SolutionItems) = preProject
+		Baekjoon\P10026.cs = Baekjoon\P10026.cs
+		Baekjoon\P11053.cs = Baekjoon\P11053.cs
+		Baekjoon\P14500.cs = Baekjoon\P14500.cs
+		Baekjoon\P16928.cs = Baekjoon\P16928.cs
+		Baekjoon\P30804.cs = Baekjoon\P30804.cs
+		Baekjoon\P5430.cs = Baekjoon\P5430.cs
+		Baekjoon\P7662.cs = Baekjoon\P7662.cs
+		Baekjoon\P9019.cs = Baekjoon\P9019.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solved_NotPosted", "Solved_NotPosted", "{C8D5274F-AC00-46C7-1F8D-E88E81087A52}"
+	ProjectSection(SolutionItems) = preProject
+		Baekjoon\P14500.cs = Baekjoon\P14500.cs
+		Baekjoon\P9019.cs = Baekjoon\P9019.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NotSolved", "NotSolved", "{E7311D88-C191-4422-9185-3499AAFAA0FE}"
+	ProjectSection(SolutionItems) = preProject
+		Baekjoon\P15650.cs = Baekjoon\P15650.cs
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9C55AB01-8C7D-4B05-B773-50185A775B06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C55AB01-8C7D-4B05-B773-50185A775B06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C55AB01-8C7D-4B05-B773-50185A775B06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C55AB01-8C7D-4B05-B773-50185A775B06}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {87A2350F-1226-4772-919D-66E43547E4AB}
+	EndGlobalSection
+EndGlobal
