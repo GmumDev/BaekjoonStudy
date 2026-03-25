@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -11,32 +13,42 @@ namespace Baekjoon
 	internal class P15650
 	{
 		/*
-		 
-		 4 3
-		1 2 3
-		1 2 4
-		1 3 4
-		2 3 4
 
-		 
+			재귀인데 Que 안에 Stack을 넣으
+					 
 		 
 		 */
 
-		public static int nCr(int n, int r)
-		{
-			r = Math.Min(r, (n - r));
 
-			int bunmo = 1;
-			for(int i = 0; i < r; i++)
+		public static Queue<Stack<int>> Jag(int M, int m, int start, int end)
+		{
+			if(m == M)
 			{
-				bunmo *= n--;
+				Queue<Stack<int>> queue = new Queue<Stack<int>>();
+				for (int i = start; i <= end; i++)
+				{
+					var tmp = new Stack<int>();
+					tmp.Push(i);
+					queue.Enqueue(tmp);
+				}
+				return queue;
 			}
-			int bunza = 1;
-			for(int i = 0; i < r; i++)
+			else
 			{
-				bunza *= r--;
+				Queue<Stack<int>> queue = new Queue<Stack<int>>();
+				for (int i = start; i <= end; i++)
+				{
+					var que = Jag(M, m + 1, i + 1, end);
+					while (que.Count > 0)
+					{
+						var tmp = que.Dequeue();
+						tmp.Push(i);
+						queue.Enqueue(tmp);
+					}	
+				}
+				return queue;
 			}
-			return bunmo / bunza;
+
 		}
 		public static void Main(string[] args)
 		{
@@ -49,14 +61,20 @@ namespace Baekjoon
 
 			StringBuilder buf = new StringBuilder();
 
-			int[] row = new int[M];
-			for (int i = 0; i < M; i++)
-				row[i] = i + 1;
-			for(int i = 0; i < nCr(N, M); i++)
+
+			Queue<Stack<int>> que = Jag(M, 1, 1, N);
+			while(que.Count > 0)
 			{
-
+				Stack<int> stack = que.Dequeue();
+				while(stack.Count > 0)
+				{
+					int elem = stack.Pop();
+					buf.Append(elem);
+					buf.Append(' ');
+				}
+				buf.Append('\n');
 			}
-
+			Console.WriteLine(buf);	
 		}
 	}
 }

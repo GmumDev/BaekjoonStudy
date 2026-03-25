@@ -10,6 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solved_READONLY", "Solved_R
 		Baekjoon\P10026.cs = Baekjoon\P10026.cs
 		Baekjoon\P11053.cs = Baekjoon\P11053.cs
 		Baekjoon\P14500.cs = Baekjoon\P14500.cs
+		Baekjoon\P15650.cs = Baekjoon\P15650.cs
 		Baekjoon\P16928.cs = Baekjoon\P16928.cs
 		Baekjoon\P30804.cs = Baekjoon\P30804.cs
 		Baekjoon\P5430.cs = Baekjoon\P5430.cs
@@ -18,15 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solved_READONLY", "Solved_R
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solved_NotPosted", "Solved_NotPosted", "{C8D5274F-AC00-46C7-1F8D-E88E81087A52}"
-	ProjectSection(SolutionItems) = preProject
-		Baekjoon\P14500.cs = Baekjoon\P14500.cs
-		Baekjoon\P9019.cs = Baekjoon\P9019.cs
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NotSolved", "NotSolved", "{E7311D88-C191-4422-9185-3499AAFAA0FE}"
-	ProjectSection(SolutionItems) = preProject
-		Baekjoon\P15650.cs = Baekjoon\P15650.cs
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
