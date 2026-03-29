@@ -11,6 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solved_READONLY", "Solved_R
 		Baekjoon\P11053.cs = Baekjoon\P11053.cs
 		Baekjoon\P14500.cs = Baekjoon\P14500.cs
 		Baekjoon\P15650.cs = Baekjoon\P15650.cs
+		Baekjoon\P15652.cs = Baekjoon\P15652.cs
 		Baekjoon\P16928.cs = Baekjoon\P16928.cs
 		Baekjoon\P30804.cs = Baekjoon\P30804.cs
 		Baekjoon\P5430.cs = Baekjoon\P5430.cs
