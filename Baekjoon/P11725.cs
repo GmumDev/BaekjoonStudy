@@ -1,84 +1,91 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Baekjoon
 {
-	internal class P11725
-	{
-		/*
-		 
-		N개의 노드가 존재. 각 노드의 idx는 1부터 시작하여 N까지 포함. 
-		간선도 N개 주어짐. 
-				// 입력마다 반드시 새로운 노드가 포함됨. 
-		 
-		1. [오답]
-			간선 입력시 이전에 입력된 간선이 하나라도 포함되어 있지 않다면 누가 부모인지 알 수 없다 
-		
-			- 입력 단계에서 부모/자식 여부를 확정할 수 있는지?
-				: 불가능. 
-		2. [메모리 초과]
-			- N * N 크기의 isConnected 배열
-			- 그야? N이 최대 100,000인데? N * N 그리드를 만들면 메모리가 초과되겠지 아무래도
+    internal class P11725
+    {
+        /*
+         
+         문제
 
-		3. [시간 초과]
-			입력 받는데 N
-			탐색하는데 N*N
-			출력하는데 N
+            루트 없는 트리가 주어진다. 이때, 트리의 루트를 1이라고 정했을 때, 각 노드의 부모를 구하는 프로그램을 작성하시오.
 
-			입력 저장 방법?
-			부모-자식여럿 가능
-			부모인지 자식인지 입력때는 모름
+            입력
+            첫째 줄에 노드의 개수 N (2 ≤ N ≤ 100,000)이 주어진다. 둘째 줄부터 N-1개의 줄에 트리 상에서 연결된 두 정점이 주어진다.
 
-			그럼 node -> [node, node, ...]식으로 참조해야됨. 
+            출력
+            첫째 줄부터 N-1개의 줄에 각 노드의 부모 노드 번호를 2번 노드부터 순서대로 출력한다.
 
-			걍 트리를 만들어
-		 */
+         */
 
 
-		public class Node
-		{
-			public int val;
-			public List<Node> connectTo;
-			public Node() { connectTo = new List<Node>(); }
-		}
-		public static void Main(string[] args)
-		{
-			StringBuilder buf = new StringBuilder();
+        static void Main(string[] args)
+        {
+            int N = int.Parse(Console.ReadLine());
 
-			int N = int.Parse(Console.ReadLine());
+            // 노드의 개수 N
+            // 간선의 개수 N-1
 
-			List<int>[] connection = new List<int>[N + 1];
-			for(int i = 0; i< N-1; i++)
-			{
-				string[] input = Console.ReadLine().Split(' ');
-				int a = int.Parse(input[0]);
-				int b = int.Parse(input[1]);
-				// let a < b
-				if (a > b) (a, b) = (b, a);
-				if (connection[a] == null) connection[a] = new List<int>();
-				connection[a].Add(b);
-			}
+            List<int>[] fromto = new List<int>[N + 1];
+            Queue<int> que = new Queue<int>();
+            int[] answ = new int[N + 1];
+            for (int i = 0; i < N-1; i++)
+            {
+                string[] input = Console.ReadLine().Split(' ');
+                int a = int.Parse(input[0]);
+                int b = int.Parse(input[1]);
 
-			int[] parent = new int[N + 1];
-			Queue<int> que = new Queue<int>();
-			que.Enqueue(1);
-			while(que.Count > 0)
-			{
-				int par = que.Dequeue();
-				for(int i = 0; i < connection[par].Count; i++)
-				{
-					//connection[par][i];
-				}
-			}
-			
+                if (a == 1)
+                {
+                    que.Enqueue(b);
+                    answ[b] = 1;
+                }
+                else if (b == 1)
+                {
+                    que.Enqueue(a);
+                    answ[a] = 1;
+                }
 
+                if (fromto[a] == null) fromto[a] = new List<int>();
+                fromto[a].Add(b);
 
+                if (fromto[b] == null) fromto[b] = new List<int>();
+                fromto[b].Add(a);
+            }
 
-			Console.Write(buf);
+            bool[] isConnected = new bool[N + 1];
+            isConnected[1] = true;
 
-		}
-	}
+            while(que.Count > 0)
+            {
+                int par = que.Dequeue();
+                isConnected[par] = true;
+
+                if (fromto[par] != null)
+                    foreach(var c in fromto[par])
+                    {
+                        if (isConnected[c]) 
+                            continue;
+                        answ[c] = par;
+                        que.Enqueue(c);
+                    }
+            }
+
+            StringBuilder buf = new StringBuilder();
+            for (int i = 2; i < N + 1; i++)
+            {
+                buf.Append(answ[i]); buf.Append('\n');
+            }
+            Console.WriteLine(buf);
+            
+            
+            
+        }
+    }
 }
